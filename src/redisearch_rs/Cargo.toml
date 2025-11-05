@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "bsearch",
     "buffer",
     "build_utils",
     "c_entrypoint/*",
