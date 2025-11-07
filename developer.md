@@ -98,6 +98,28 @@ For running specific tests you can use the following commands:
 * C++ tests (enabled by GTest), located in tests/cpptests, run by `make cpp-tests`.
 * Python behavioral tests (enabled by [RLTest](https://github.com/RedisLabsModules/RLTest)), located in tests/pytests, run by `make pytest`.
 
+### Building unit tests
+
+Unit tests (C and C++) need to be explicitly enabled during the build. You can do this in two ways:
+
+1. **Using Make** (recommended):
+   ```bash
+   make unit-tests  # Builds and runs all C/C++ unit tests
+   ```
+
+2. **Using CMake directly**:
+   ```bash
+   cmake -DBUILD_SEARCH_UNIT_TESTS=ON bin/macos-aarch64-release/search-community
+   make -C bin/macos-aarch64-release/search-community
+   ```
+
+To run individual test executables after building:
+```bash
+./bin/macos-aarch64-release/search-community/tests/ctests/test_logging
+```
+
+**Note for macOS developers**: If you encounter build errors with the fmt library on newer macOS SDKs (15.5+), see [issue #7250](https://github.com/RediSearch/RediSearch/issues/7250#issuecomment-3501404323) for a workaround.
+
 ### Test prerequisites
 To run the python behavioral tests you need to install the following dependencies:
 * python test requirements listed in [pyproject.toml](tests/pytests/pyproject.toml)
