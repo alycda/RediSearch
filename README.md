@@ -32,6 +32,9 @@ RediSearch indexes enhance Redis by providing exact-phrase matching, fuzzy searc
 
 If you're just getting started with RediSearch, check out the [official RediSearch tutorial](https://github.com/RediSearch/redisearch-getting-started). Also, consider viewing our [RediSearch video explainer](https://www.youtube.com/watch?v=B10nHEdW3NA).
 
+1. run `git submodule update --init --recursive`
+1. run `make build`
+
 ## Documentation
 
 The [RediSearch documentation](https://redis.io/docs/latest/develop/ai/search-and-query/) provides a complete overview of RediSearch. Helpful sections include:

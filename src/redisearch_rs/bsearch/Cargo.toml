@@ -1,0 +1,15 @@
+[package]
+name = "bsearch"
+version.workspace = true
+edition.workspace = true
+license-file.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+
+[dev-dependencies]
+proptest = { workspace = true, features = ["std"] }
+proptest-derive.workspace = true
