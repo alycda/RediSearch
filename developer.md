@@ -9,6 +9,27 @@ git clone --recursive https://github.com/RediSearch/RediSearch.git
 ## Dev container
 We have provided a dev container based on `ubuntu:latest` docker image with all the dependencies (Redis, build systems, rust, Python virtual environment) installed. Just clone the repo and open it in the dev container. It will take a few minutes for the first time to download and install the dependencies.
 If you would like to build it on your machine without a docker, proceed to the next sections.
+
+### Troubleshooting
+
+If `make test` fails with `signal: 9, SIGKILL` during benchmark compilation:
+
+1. Clean Docker:
+    ```
+    docker system prune -a -f
+    Docker daemon overhead from old images/containers can consume significant memory.
+    ```
+2. Increase Docker memory (if cleanup doesn't help):
+    - Docker Desktop → Settings → Resources → Memory
+    - Set to at least 10GB (local) or 8GB (with clean Docker)
+
+3. Test specific packages only:
+    cd src/redisearch_rs
+    cargo test -p # avoids heavy benchmark builds
+4. Run directly on Host Machine
+5. Use [GitHub Codespaces](https://codespaces.new/RediSearch/RediSearch/) (with increased memory if possible to speed up execution)    
+
+
 ## Installing prerequisites
 
 ### Build dependencies
